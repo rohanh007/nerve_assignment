@@ -1,0 +1,197 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.toggle-container,
+.dropdown-container,
+.card-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.toggle-container {
+  background-color: #E5E4E2;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+.toggle-button {
+  padding: 5px 10px;
+  margin: 2px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: #E5E4E2;
+  color: #808080;
+  border: 1px;
+  border-radius: 10px;
+}
+
+.active {
+  background: blue;
+  color: white;
+  padding: 5px 15px;
+}
+
+.dropdown-container div {
+  width: 100%;
+  padding-left: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.dropdown {
+  width: 100%;
+  height: auto;
+  font-family: Arial, sans-serif;
+}
+
+.dropdown-options {
+  display: none;
+  top: 100%;
+  width: 96%;
+  padding-left: 10px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown-selected {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.dropdown-options div {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  margin: 15px 0;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-options div:hover {
+  background-color: #ddd;
+}
+
+.dropdown.open .dropdown-options {
+  display: block;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.card-container .card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emptystate {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: large;
+}
+
+.emptystate div {
+  font-size: larger;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.count-strategy {
+  color: #808080;
+}
+
+@media (max-width: 1024px) {
+  .toggle-container, .dropdown-container, .card-container {
+    max-width: 70%;
+  }
+
+  .toggle-button {
+    font-size: 1.1rem;
+    padding: 5px 8px;
+  }
+
+  .dropdown-selected,
+  .dropdown-options div {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .card {
+    padding: 8px;
+  }
+
+  .emptystate {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .toggle-container, .dropdown-container, .card-container {
+    max-width: 80%;
+  }
+
+  .toggle-button {
+    font-size: 1rem;
+    padding: 4px 7px;
+  }
+
+  .dropdown-selected,
+  .dropdown-options div {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
+
+  .card {
+    padding: 7px;
+  }
+
+  .emptystate {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 480px) {
+  .toggle-container, .dropdown-container, .card-container {
+    max-width: 90%;
+  }
+
+  .toggle-button {
+    font-size: 0.9rem;
+    padding: 3px 6px;
+  }
+
+  .dropdown-selected,
+  .dropdown-options div {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  .card {
+    padding: 6px;
+  }
+
+  .emptystate {
+    font-size: small;
+  }
+}
