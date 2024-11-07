@@ -23,32 +23,41 @@ strategyArray.forEach(strategy => {
 const dropdown = document.querySelector('.dropdown');
 const selected = dropdown.querySelector('.dropdown-selected');
 const optionsContainer = dropdown.querySelector('.dropdown-options');
+let flag = true;
+
+// Set initial selected date with down chevron icon
+// selected.innerHTML = `<p>${currentDate} <i class="fa fa-chevron-down"></i></p>`;
 selected.textContent=currentDate;
 dateArray.forEach(date => {
   const option = document.createElement('div');
   option.textContent = date;
-  option.value = date; 
+  option.value = date;
   optionsContainer.appendChild(option);
-  
-  // console.log(date);
+
   option.addEventListener('click', () => {
-    selected.textContent = date;
+    // selected.innerHTML = `<p>${date} <i class="fa fa-chevron-down"></i></p>`;
+    selected.textContent=date;
     setDate(date);
-    // console.log(date);
     dropdown.classList.remove('open');
+    flag = true;
   });
 });
 
 selected.addEventListener('click', () => {
   dropdown.classList.toggle('open');
+  flag = !flag;
+  // selected.innerHTML = `<p>${currentDate} <i class="fa ${flag ? 'fa-chevron-down' : 'fa-chevron-up'}"></i></p>`;
 });
 
 // Close dropdown if clicked outside
 document.addEventListener('click', (e) => {
   if (!dropdown.contains(e.target)) {
     dropdown.classList.remove('open');
+    flag = true;
+    // selected.innerHTML = `<p>${currentDate} <i class="fa fa-chevron-down"></i></p>`;
   }
 });
+
 // Select date in selectlist 
 function setView(view) {
   currentView = view;
@@ -78,7 +87,7 @@ function renderCards() {
     // console.log(Object.entries(strategyCount));
 
     for (const [name, count] of Object.entries(strategyCount)) {
-      const card = document.createElement('div');
+      const card = document.createElement('div' );
       card.className = 'card';
       card.innerHTML = `<div><h4>${name}</h4><p class="count-strategy">&#9679 ${count} ${count > 1 ? 'Strategies' : 'Strategy'}</p></div>`;
       cardContainer.appendChild(card);
@@ -88,5 +97,5 @@ function renderCards() {
   }
 }
 
-// Initial render
+//  render
 renderCards();
